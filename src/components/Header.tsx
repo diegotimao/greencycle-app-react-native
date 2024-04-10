@@ -9,7 +9,7 @@ export default function Header() {
         <View className="h-10 w-10 items-center justify-center rounded-full bg-green-700">
           <BellDot color={"#ffffff"} />
         </View>
-      </View>''
+      </View>
 
       <View className="flex-row justify-between mb-12">
         <View className="gap-2">
