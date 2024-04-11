@@ -1,4 +1,4 @@
-import Header from '@/components/Header'
+import Header from '@/components/header'
 import Balance from '@/components/balance'
 import React from 'react'
 import { View } from 'react-native'
