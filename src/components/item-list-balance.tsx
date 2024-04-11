@@ -7,11 +7,11 @@ type itemsProps = {
 
 export default function ItemListBalance({data}: itemsProps) {
   return (
-    <View className="flex-row justify-between mt-3 items-center">
-      <Text className="text-xl text-blue-900 font-normal">{data.nameItem}</Text>
+    <View className="flex-row justify-between mt-2 items-center">
+      <Text className="text-base text-blue-900 font-semibold">{data.nameItem}</Text>
       <View className="flex-row gap-4 justify-between">
-        <Text className="text-lg font-semibold">{`kg ${data.kg}`}</Text>
-        <Text className="text-lg text-green-800">{`R$ ${data.value}`}</Text>
+        <Text className="text-base font-semibold">{`kg ${data.kg}`}</Text>
+        <Text className="text-base text-green-800">{`R$ ${data.value}`}</Text>
       </View>
     </View>
   )
