@@ -1,11 +1,14 @@
 import { AlignLeft, BellDot, ChevronRight } from "lucide-react-native";
 import { View, Text } from "react-native";
+import MenuButton from "./menu-button";
 
 export default function Header() {
   return (
     <View className="mt-6 p-5 h-60 w-full bg-green-900 justify-between">
       <View className="flex-row justify-between">
-        <AlignLeft color={"#ffffff"} size={35}/>
+
+        <MenuButton/>
+
         <View className="h-10 w-10 items-center justify-center rounded-full bg-green-700">
           <BellDot color={"#ffffff"} />
         </View>
