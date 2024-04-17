@@ -4,9 +4,9 @@ import { itemsBalance } from "@/utils/items-balance";
 
 export default function Balance() {
   return (
-    <View className="w-full h-64 p-5">
-      <View className="bg-white w-full h-['260px'] mt-[-50] rounded-xl p-5">
-        <View className="gap-2 mb-6">
+    <View className="w-full p-5">
+      <View className="bg-white w-full mt-[-50] rounded-xl p-5">
+        <View className="gap-2 mb-4">
           <Text className="text-blue-900 font-bold text-xl">Meu balanço de Outubro</Text>
           <Text className="text-blue-900 font-semibold text-2xl">R$ 21,60</Text>
         </View>
