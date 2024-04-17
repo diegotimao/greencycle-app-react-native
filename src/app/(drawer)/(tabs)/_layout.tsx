@@ -11,12 +11,12 @@ export default function TabLayout() {
         minHeight: 68,
       },
       tabBarItemStyle: {
-        paddingBottom: 24,
+        paddingBottom: 12,
+        gap: 5,
         paddingTop: 14,
         paddingLeft: 24,
         paddingRight: 24
       },
-      tabBarShowLabel: false,
       tabBarActiveTintColor: colors.green[900],
       tabBarInactiveTintColor: colors.black[900],
     }}>
