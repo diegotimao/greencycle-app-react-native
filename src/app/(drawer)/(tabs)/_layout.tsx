@@ -21,21 +21,25 @@ export default function TabLayout() {
       tabBarInactiveTintColor: colors.black[900],
     }}>
       <Tabs.Screen name="index" options={{
+        title: "Home",
         tabBarIcon: ({ size, color }) => (
           <Home size={size} color={color} />
         )
       }}/>
       <Tabs.Screen name="locations" options={{
+        title: "Locais",
         tabBarIcon: ({ size, color}) => (
           <MapPinned size={size} color={color}/>
         )
       }}/>
       <Tabs.Screen name="cupons" options={{
+        title: "Cupons",
         tabBarIcon: ({ size, color}) => (
           <TicketX size={size} color={color} />
         )
       }}/>
-      <Tabs.Screen name="perfil" options={{
+      <Tabs.Screen name="perfil"  options={{
+        title: "Perfil",
         tabBarIcon: ({ size, color}) => (
           <UserRoundCog size={size} color={color}/>
         )
