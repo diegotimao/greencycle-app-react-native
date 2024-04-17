@@ -3,9 +3,11 @@ import ButtonsPage from "./buttons-page";
 
 export default function SectionButtonsPage() {
   return (
-    <View className="p-5 flex-row w-full items-center justify-between">
-      <ButtonsPage title='Estatística Geral' />
-      <ButtonsPage title='Espaçco Educa' />
+    <View className="flex-row -mt-6 p-5 items-center gap-3">
+      <View className="flex-row gap-4">
+        <ButtonsPage title='Estatística Geral' />
+        <ButtonsPage title='Espaçco Educa' />
+      </View>
     </View>
   )
 }
