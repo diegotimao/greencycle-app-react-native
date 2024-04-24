@@ -7,7 +7,7 @@ import { ecpontoItem } from "@/utils/ecopon-data";
 export default function Locations() {
   return (
     <View className="flex-1 bg-gray-700">
-      <HeaderAlter />
+      <HeaderAlter pageTitle="Ecopontos" isFilter={true} />
       <View className="p-6">
         <Text className="text-lg font-heading font-bold">Ecopontos em Paulo Afonso</Text>
       </View>
