@@ -28,7 +28,7 @@ export default function Layout() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <StatusBar style="dark" />
-      <Slot/>
+      <Slot />
     </GestureHandlerRootView>
   )
 }
