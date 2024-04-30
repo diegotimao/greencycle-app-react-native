@@ -1,6 +1,6 @@
 import { colors } from "@/styles/colors";
 import { Tabs } from "expo-router";
-import { Home, MapPinned, TicketX, UserRoundCog } from "lucide-react-native";
+import { CircleUserRound, Home, MapPinned, TicketX, UserRoundCog } from "lucide-react-native";
 
 export default function TabLayout() {
   return (
@@ -41,7 +41,7 @@ export default function TabLayout() {
       <Tabs.Screen name="perfil"  options={{
         title: "Perfil",
         tabBarIcon: ({ size, color}) => (
-          <UserRoundCog size={size} color={color}/>
+          <CircleUserRound size={size} color={color} />
         )
       }}/>
     </Tabs>
