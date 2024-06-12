@@ -15,8 +15,7 @@ export default function Perfil() {
   }
 
   return (
-    <View className="flex-1 gap-10">
-      <HeaderAlter isFilter={false} pageTitle="Perfil" />
+    <View className="flex-1 mt-20 gap-10">
       <View className="w-full h-50 p-6">
         <View className="mt-[-50] w-full gap-10 rounded-xl">
           <ProfileHeader />

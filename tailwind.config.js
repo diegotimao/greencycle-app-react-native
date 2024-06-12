@@ -12,5 +12,10 @@ module.exports = {
       fontFamily
     },
   },
+  variants: {
+    extend: {
+      placeholderColor: ['focus', 'hover'], // Adicione as variantes desejadas
+    },
+  },
   plugins: [],
 }

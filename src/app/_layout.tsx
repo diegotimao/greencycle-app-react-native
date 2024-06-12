@@ -1,6 +1,6 @@
 import "@/styles/global.css"
 
-import { Slot } from "expo-router"
+import { Redirect, Slot } from "expo-router"
 import { StatusBar } from "expo-status-bar"
 import { GestureHandlerRootView } from "react-native-gesture-handler"
 
@@ -12,6 +12,7 @@ import {
 } from "@expo-google-fonts/roboto"
 
 import { Loading } from "@/components/loading"
+import AuthProvider from "@/contexts/auth"
 
 export default function Layout() {
 
@@ -24,11 +25,13 @@ export default function Layout() {
   if (!fontsLoaded) {
     return <Loading />
   }
-
+  
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <StatusBar style="dark" />
-      <Slot />
-    </GestureHandlerRootView>
+    <AuthProvider>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <StatusBar style="dark" />
+        <Slot />
+      </GestureHandlerRootView>
+    </AuthProvider>
   )
 }

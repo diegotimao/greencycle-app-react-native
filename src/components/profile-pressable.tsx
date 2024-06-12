@@ -12,11 +12,13 @@ const ProfilePressable: React.FC<ProfilePressableProps> = ({ text, icon, iconCol
   const IconComponent = icon;
 
   return (
-    <Pressable 
-      className="w-full h-14 bg-white rounded-md flex-row justify-between items-center pl-4 pr-4"
+    <Pressable
+      className="w-full h-14 rounded-md flex-row justify-between items-center pl-4 pr-4"
     >
       <View className="flex-row items-center gap-4">
-        <IconComponent color={iconColor} />
+        <View className="w-12 h-12 bg-white rounded-full justify-center items-center">
+          <IconComponent color={iconColor} />
+        </View>
         <Text>{text}</Text>
       </View>
       <ChevronRight color={"#18604A"} />

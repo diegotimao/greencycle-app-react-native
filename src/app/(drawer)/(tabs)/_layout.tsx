@@ -1,8 +1,16 @@
+import React, { useContext } from "react";
+import { AuthContext } from "@/contexts/auth";
 import { colors } from "@/styles/colors";
-import { Tabs } from "expo-router";
+import { Redirect, Tabs } from "expo-router";
 import { CircleUserRound, Home, MapPinned, TicketX, UserRoundCog } from "lucide-react-native";
 
 export default function TabLayout() {
+  const { name } = useContext(AuthContext);
+
+  if (!name) {
+    return <Redirect href="/register-user-data" />;
+  }
+
   return (
     <Tabs screenOptions={{
       headerShown: false,
