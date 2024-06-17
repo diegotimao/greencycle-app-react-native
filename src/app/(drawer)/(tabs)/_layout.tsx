@@ -5,9 +5,15 @@ import { Redirect, Tabs } from "expo-router";
 import { CircleUserRound, Home, MapPinned, TicketX, UserRoundCog } from "lucide-react-native";
 
 export default function TabLayout() {
-  const { name } = useContext(AuthContext);
+  const authContext = useContext(AuthContext);
+  
+  if (!authContext) {
+    throw new Error('AuthContext not found');
+  };
 
-  if (!name) {
+  const { user } = authContext;
+
+  if (user.name === '') {
     return <Redirect href="/register-user-data" />;
   }
 
