@@ -7,14 +7,19 @@ type SelectType = {
   title: string,
   search: string,
   stateId: string | null,
-  onChangeSelect: (id: string) => void
+  onChangeSelect: (id: string, name: string) => void
+}
+
+interface Item {
+  id: number;
+  name: string;
 }
 
 export default function Select({ title, search, stateId, onChangeSelect }: SelectType) {
   const [modalVisible, setModalVisible] = useState(false);
   const [txt, setTxt] = useState(title);
   const [error, setError] = useState(false);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Item[]>([]);
 
   const getStateUrl = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome';
   const getCityUrl = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${stateId}/municipios`;
@@ -43,11 +48,11 @@ export default function Select({ title, search, stateId, onChangeSelect }: Selec
       };
       fetchData();
     }
-  }, [modalVisible, search, stateId]); // Adiciona o array de dependências para evitar chamadas infinitas
+  }, [modalVisible, search, stateId]);
 
   const renderOption = ({ item }: any) => (
     <TouchableOpacity style={style.optionsContanier} onPress={() => {
-      onChangeSelect(item.id);
+      onChangeSelect(item.id, item.nome);
       setTxt(item.nome); // Altere item.name para item.nome
       setModalVisible(false);
     }}>
@@ -55,7 +60,6 @@ export default function Select({ title, search, stateId, onChangeSelect }: Selec
       <Check color={'green'} size={16} />
     </TouchableOpacity>
   );
-
 
   return (
     <>
