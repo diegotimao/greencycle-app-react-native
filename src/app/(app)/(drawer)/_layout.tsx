@@ -13,7 +13,9 @@ export default function DrawerLayout() {
     }}
     drawerContent = {(props) => <DrawerContent {...props}/>}
     >
-      <Drawer.Screen name="(tabs)" />
+      <Drawer.Screen name="(tabs)" options={{
+          headerShown: false,
+        }}/>
     </Drawer>
   )
 }

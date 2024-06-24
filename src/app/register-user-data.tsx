@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { BookLock, Eye, EyeOff, LockKeyhole, MailPlus, MapPinned, SquareUserRound } from "lucide-react-native";
-import { KeyboardAvoidingView, Pressable, ScrollView, Text, View, TextInput, Platform, Image, TouchableOpacity } from "react-native";
+import { KeyboardAvoidingView, Pressable, ScrollView, Text, View, TextInput, Platform, Image, TouchableOpacity, Alert } from "react-native";
 import { useRouter } from 'expo-router';
 import HeaderRegister from '@/components/header-register';
 import { ValidateEmail, formartCPF, validateCPF, validateName } from '@/utils/validete-register';
@@ -71,12 +71,12 @@ export default function RegisterUserData() {
       city: ''
     })
 
+    if (!name || !cpf || !email || !password) {
+      return alert('Voçê deve preencher todos os campos');
+    };
+
     route.push('/register-user-adress');
   };
-
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
 
   return (
     <KeyboardAvoidingView

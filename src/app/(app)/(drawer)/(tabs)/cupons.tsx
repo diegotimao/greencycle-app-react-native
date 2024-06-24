@@ -1,9 +1,11 @@
 import CuponItem from "@/components/cupon-item";
 import CuponsList from "@/components/cupons-list";
 import Header from "@/components/header";
+import { usePathname } from "expo-router";
 import { ScrollView, Text, View, Image, Pressable } from "react-native";
 
 export default function Cupons() {
+  console.log(usePathname())
   return (
     <View className="flex-1 bg-gray-700">
       <Header />

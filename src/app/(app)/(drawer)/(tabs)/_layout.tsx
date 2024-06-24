@@ -1,21 +1,21 @@
 import React, { useContext } from "react";
 import { AuthContext } from "@/contexts/auth";
 import { colors } from "@/styles/colors";
-import { Redirect, Tabs } from "expo-router";
-import { CircleUserRound, Home, MapPinned, TicketX, UserRoundCog } from "lucide-react-native";
+import { Redirect, Tabs, router } from "expo-router";
+import { CircleUserRound, Home, MapPinned, TicketX } from "lucide-react-native";
 
 export default function TabLayout() {
-  const authContext = useContext(AuthContext);
+  // const authContext = useContext(AuthContext);
   
-  if (!authContext) {
-    throw new Error('AuthContext not found');
-  };
+  // if (!authContext) {
+  //   throw new Error('AuthContext not found');
+  // };
 
-  const { user } = authContext;
+  // const { user } = authContext;
 
-  if (user.name === '') {
-    return <Redirect href="/register-user-data" />;
-  }
+  // if (user.name === '') {
+  //   return router.push("/tutorial");
+  // }
 
   return (
     <Tabs screenOptions={{

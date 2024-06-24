@@ -5,6 +5,8 @@ interface AuthContextType {
   name: string,
   stateId: string;
   setStateId: (id: string) => void;
+  token: string,
+  setToken: (token: string) => void,
   user: {
     name: string,
     cpf: string,
@@ -20,7 +22,7 @@ interface AuthContextType {
     password: string,
     state: string,
     city: string
-  }) => void
+  }) => void,
 }
 
 // Crie o contexto com um valor padrão
@@ -33,6 +35,8 @@ interface AuthProviderProps {
 
 const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [stateId, setStateId] = useState<string>("");
+  const [token, setToken] = useState('');
+
   const [user, setUser] = useState({
     name: '',
     cpf: '',
@@ -48,7 +52,9 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       stateId, 
       setStateId,
       user,
-      setUser
+      setUser,
+      token,
+      setToken
     }}>
       {children}
     </AuthContext.Provider>
