@@ -22,7 +22,9 @@ export default function TabLayout() {
       headerShown: false,
       tabBarStyle: {
         borderTopWidth: 0,
-        minHeight: 68,
+        minHeight: 60,
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
       },
       tabBarItemStyle: {
         paddingBottom: 12,
@@ -38,25 +40,29 @@ export default function TabLayout() {
         title: "Home",
         tabBarIcon: ({ size, color }) => (
           <Home size={size} color={color} />
-        )
+        ),
+        tabBarLabel: () => null,
       }}/>
       <Tabs.Screen name="locations" options={{
         title: "Locais",
         tabBarIcon: ({ size, color}) => (
           <MapPinned size={size} color={color}/>
-        )
+        ),
+        tabBarLabel: () => null,
       }}/>
       <Tabs.Screen name="cupons" options={{
         title: "Cupons",
         tabBarIcon: ({ size, color}) => (
           <TicketX size={size} color={color} />
-        )
+        ),
+        tabBarLabel: () => null,
       }}/>
       <Tabs.Screen name="perfil"  options={{
         title: "Perfil",
         tabBarIcon: ({ size, color}) => (
           <CircleUserRound size={size} color={color} />
-        )
+        ),
+        tabBarLabel: () => null,
       }}/>
     </Tabs>
   )
