@@ -6,7 +6,7 @@ export default function SectionButtonsPage() {
     <View className="flex-row -mt-6 p-5 items-center gap-3">
       <View className="flex-row gap-4">
         <ButtonsPage title='Estatística Geral' />
-        <ButtonsPage title='Espaçco Educa' />
+        <ButtonsPage title='Espaço Educa' />
       </View>
     </View>
   )
