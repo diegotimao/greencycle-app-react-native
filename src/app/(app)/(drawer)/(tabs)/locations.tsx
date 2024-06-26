@@ -8,8 +8,8 @@ export default function Locations() {
   return (
     <View className="flex-1 bg-gray-700">
       <HeaderAlter pageTitle="Ecopontos" isFilter={true} />
-      <View className="p-6">
-        <Text className="text-lg font-heading font-bold">Ecopontos em Paulo Afonso</Text>
+      <View className="pt-2 pl-6 pb-5">
+        <Text className="text-lg font-heading font-bold text-zinc-700/80">Ecopontos em Paulo Afonso</Text>
       </View>
       <FlatList 
         className="p-6 pt-0 w-full gap-5"
