@@ -32,7 +32,7 @@ export default function CuponItem({
           <Text className="text-xl font-bold">{company}</Text>
           <Text className="text-xl font-bold">$ {valueDiscont}%</Text>
         </View>
-        <Text className="text-sm font-semibold text-gray-600 z-0">Válidos somente até {expiredIn}</Text>
+        <Text className="text-sm font-semibold text-zinc-700 z-0">Válidos somente até {expiredIn}</Text>
       </View>
       <View className="w-12 h-12 bg-gray-700 rounded-full absolute top-1/2 transform -ml-8 left-0" />
       <View className="w-12 h-12 z-10 bg-gray-700 rounded-full absolute top-1/2 transform -right-0 -mr-8" />
