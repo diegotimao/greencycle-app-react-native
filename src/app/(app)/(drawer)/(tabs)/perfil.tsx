@@ -1,19 +1,14 @@
 import React from "react";
 import { Image, View } from "react-native";
-import { useRouter } from "expo-router";
 import { BadgeHelp, CircleUserRound, LogOut, Repeat1, WalletMinimal } from "lucide-react-native";
 
 import ProfilePressable from "@/components/profile-pressable";
 import ProfileHeader from "@/components/profile-header";
 
-import { SessionProvider } from "@/contexts/authSession";
+import { useSession } from "@/contexts/authSession";
 
 export default function Perfil() {
-  const routes = useRouter();
-
-  const logout = () => {
-    routes.push("/login")
-  }
+  const { signOut } = useSession();
 
   return (
     <View className="flex-1 mt-6 gap-10">
@@ -29,7 +24,7 @@ export default function Perfil() {
             <ProfilePressable text="Métodos de pagamentos" icon={WalletMinimal} iconColor="#18604A" />
             <ProfilePressable text="Suporte" icon={BadgeHelp} iconColor="#18604A" />
             <ProfilePressable text="Faq" icon={Repeat1} iconColor="#18604A" />
-            <ProfilePressable text="Sair do app" icon={LogOut} iconColor="#18604A" />
+            <ProfilePressable text="Sair do app" icon={LogOut} iconColor="#18604A" onPress={signOut}/>
           </View>
         </View>
       </View>
