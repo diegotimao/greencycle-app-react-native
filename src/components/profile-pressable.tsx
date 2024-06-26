@@ -1,5 +1,5 @@
 import React from "react";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, Text, TouchableOpacity, View } from "react-native";
 import { ChevronRight } from "lucide-react-native";
 
 type ProfilePressableProps = {
@@ -12,17 +12,17 @@ const ProfilePressable: React.FC<ProfilePressableProps> = ({ text, icon, iconCol
   const IconComponent = icon;
 
   return (
-    <Pressable
-      className="w-full h-14 rounded-md flex-row justify-between items-center pl-4 pr-4"
+    <TouchableOpacity
+      className="w-full h-16 rounded-md flex-row justify-between items-center bg-white pl-2 pr-2"
     >
       <View className="flex-row items-center gap-4">
-        <View className="w-12 h-12 bg-white rounded-full justify-center items-center">
+        <View className="w-12 h-12 bg-green-900/15 rounded-lg justify-center items-center">
           <IconComponent color={iconColor} />
         </View>
         <Text>{text}</Text>
       </View>
       <ChevronRight color={"#18604A"} />
-    </Pressable>
+    </TouchableOpacity>
   )
 }
 
