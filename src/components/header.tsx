@@ -9,11 +9,9 @@ export default function Header() {
 
   return (
     <View className={`mt-6 p-5 ${pathName === 'cupons' ? 'h-52' : 'h-60'} w-full bg-green-900 justify-between`}>
-      <View className="flex-row justify-between">
-
+      <View className="flex-row justify-between items-center">
         <MenuButton/>
-
-        <View className="h-10 w-10 items-center justify-center rounded-full bg-green-700">
+        <View className="h-12 w-12 items-center justify-center rounded-full bg-green-800/80">
           <BellDot color={"#ffffff"} />
         </View>
       </View>
@@ -25,7 +23,7 @@ export default function Header() {
         </View>
 
         <View className="gap-2 items-end justify-end">
-          <Text className="font-medium text-2xl text-white">R$ 21,60</Text>
+          <Text className="font-medium text-2xl text-white">20</Text>
           <View className="flex-row items-center justify-end">
             <Text className="text-white">Saldo disponível</Text>
             <ChevronRight color={`#ffffff`} />
