@@ -1,22 +1,9 @@
-import React, { useContext } from "react";
-import { AuthContext } from "@/contexts/auth";
+import React from "react";
 import { colors } from "@/styles/colors";
-import { Redirect, Tabs, router } from "expo-router";
-import { CircleUserRound, Home, MapPinned, TicketX } from "lucide-react-native";
+import { Tabs } from "expo-router";
+import { CircleUserRound, Home, MapPinned, TicketPercent } from "lucide-react-native";
 
 export default function TabLayout() {
-  // const authContext = useContext(AuthContext);
-  
-  // if (!authContext) {
-  //   throw new Error('AuthContext not found');
-  // };
-
-  // const { user } = authContext;
-
-  // if (user.name === '') {
-  //   return router.push("/tutorial");
-  // }
-
   return (
     <Tabs screenOptions={{
       headerShown: false,
@@ -53,7 +40,7 @@ export default function TabLayout() {
       <Tabs.Screen name="cupons" options={{
         title: "Cupons",
         tabBarIcon: ({ size, color}) => (
-          <TicketX size={size} color={color} />
+          <TicketPercent size={size} color={color} />
         ),
         tabBarLabel: () => null,
       }}/>
