@@ -1,22 +1,17 @@
-import { router } from "expo-router";
 import { BarChart3, GraduationCap } from "lucide-react-native";
 import { Pressable, Text, View } from "react-native";
 
 type ButtonsProps = {
   title: string,
-}
-
-import { useSession } from "@/contexts/authSession";
+};
 
 export default function ButtonsPage({ title }: ButtonsProps) {
-  const { signOut } = useSession();
-
   return (
-    <Pressable className="w-[48%] bg-white h-32 rounded-lg p-5 gap-4" onPress={() => signOut()}>
+    <Pressable className="w-[48%] bg-white h-32 rounded-lg p-5 gap-4">
       <View className="w-12 h-12 rounded-full bg-green-900 justify-center items-center">
         {title === 'Estatística Geral' ? <BarChart3 color={'white'} size={20}/> : <GraduationCap color={'white'} />}
       </View>
       <Text className="font-bold text-green-900">{title}</Text>
     </Pressable>
-  )
-}
+  );
+};
