@@ -10,9 +10,9 @@ type headerAltProps = {
 
 export default function HeaderAlter({ pageTitle, isFilter }: headerAltProps) {
   return (
-    <View className="mt-6 pl-6 pr-6 pt-5 pb-5 flex-row justify-between items-center">
+    <View className="mt-6 pl-4 pt-2 pb-3 flex-row justify-between items-center">
       <Pressable className="justify-center" onPress={() => router.back()}>
-        <ChevronLeft color={"#18604A"} size={24} />
+        <ChevronLeft color={"#18604A"} size={30} />
       </Pressable>
       <Text className={`text-xl text-green-900 font-bold ${!isFilter ? 'flex-1 text-center' : null}`}>{pageTitle}</Text>
       {isFilter ? (
