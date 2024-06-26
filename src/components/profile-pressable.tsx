@@ -5,23 +5,25 @@ import { ChevronRight } from "lucide-react-native";
 type ProfilePressableProps = {
   text: string,
   icon: React.ElementType,
-  iconColor: string
+  iconColor: string,
+  onPress?: () => void 
 }
 
-const ProfilePressable: React.FC<ProfilePressableProps> = ({ text, icon, iconColor }) => {
+const ProfilePressable: React.FC<ProfilePressableProps> = ({ text, icon, iconColor, onPress }) => {
   const IconComponent = icon;
 
   return (
     <TouchableOpacity
-      className="w-full h-16 rounded-md flex-row justify-between items-center bg-white pl-2 pr-2"
+      className="w-full h-16 rounded-md flex-row justify-between items-center bg-white border border-zinc-500/5 pl-2 pr-2"
+      onPress={onPress}
     >
       <View className="flex-row items-center gap-4">
         <View className="w-12 h-12 bg-green-900/15 rounded-lg justify-center items-center">
           <IconComponent color={iconColor} />
         </View>
-        <Text>{text}</Text>
+        <Text className="font-heading">{text}</Text>
       </View>
-      <ChevronRight color={"#18604A"} />
+      <ChevronRight color={"#064E3B80"} />
     </TouchableOpacity>
   )
 }
