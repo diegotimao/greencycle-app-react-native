@@ -1,28 +1,14 @@
 import React, { createContext, useState, ReactNode } from "react";
+import { User } from '@/interfaces/User.interface';
 
 // Defina a interface para o contexto
 interface AuthContextType {
-  name: string,
   stateId: string;
   setStateId: (id: string) => void;
   token: string,
   setToken: (token: string) => void,
-  user: {
-    name: string,
-    cpf: string,
-    email: string,
-    password: string,
-    state: string,
-    city: string
-  };
-  setUser: (user: {
-    name: string,
-    cpf: string,
-    email: string,
-    password: string,
-    state: string,
-    city: string
-  }) => void,
+  user: User | null,
+  setUser: (user: User | null) => void,
 }
 
 // Crie o contexto com um valor padrão
@@ -37,18 +23,10 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [stateId, setStateId] = useState<string>("");
   const [token, setToken] = useState('');
 
-  const [user, setUser] = useState({
-    name: '',
-    cpf: '',
-    email: '',
-    password: '',
-    state: '',
-    city: ''
-  });
+  const [user, setUser] = useState<User | null>(null); // Permitir User ou null
 
   return (
     <AuthContext.Provider value={{
-      name: user.name,
       stateId, 
       setStateId,
       user,
