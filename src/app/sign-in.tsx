@@ -4,11 +4,14 @@ import { useSession } from "@/contexts/authSession";
 import { router } from "expo-router";
 import HeaderRegister from "@/components/header-register";
 import { ScrollView } from "react-native-gesture-handler";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { MailPlus, LockKeyhole, Eye, EyeOff } from "lucide-react-native";
 import { ValidateEmail } from "@/utils/validete-register";
 import { jwtDecode } from "jwt-decode";
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
+
+import { AuthContext } from "@/contexts/auth";
+import { User } from "@/interfaces/User.interface";
 
 interface ISignInUser {
   status: number,
@@ -27,7 +30,14 @@ export default function Login() {
   const [focusedInput, setFocusedInput] = useState(null);
   const [isPasswordValid, seIsPasswordValid] = useState(false);
   const [visiblePassword, setVisiblePasssword] = useState(true);
-  
+
+  const authContext = useContext(AuthContext);
+
+  if (!authContext) {
+    throw new Error('AuthContext not found');
+  }
+
+  const { user, setUser } = authContext;
 
   const handleFocus = (input: any) => {
     setFocusedInput(input);
@@ -76,7 +86,8 @@ export default function Login() {
 
       const responseToken: ISignInUser = await signInUser.json();
       const decodedToken = jwtDecode(responseToken.token);
-      console.log(decodedToken);
+      await setUser(decodedToken as User);
+      console.log('user', user);
       signIn(responseToken.token);
       
       return router.push('/');
@@ -89,8 +100,7 @@ export default function Login() {
         console.error('Erro ao processar requisição:', error);
       }
     };
-    
-  } 
+  } ;
 
   return (
       <KeyboardAvoidingView
