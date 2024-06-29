@@ -4,11 +4,11 @@ import { Drawer } from "expo-router/drawer"
 export default function DrawerLayout() {
   return (
     <Drawer 
-    // defaultStatus="open"
+    defaultStatus="open"      
     screenOptions={{
       headerShown: false,
       drawerStyle: {
-        width: "77%"
+        width: "75%"
       },
     }}
     drawerContent = {(props) => <DrawerContent {...props}/>}
