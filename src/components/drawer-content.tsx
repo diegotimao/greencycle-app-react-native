@@ -5,10 +5,14 @@ import { BadgeDollarSign, BadgeHelp, Cog, CreditCard, FileTerminal } from "lucid
 
 export default function DrawerContent(drawerProps: DrawerContentComponentProps) {
   return (
-    <View className="flex-1 bg-gray-700 justify-between">
+    <View className="flex-1 bg-gray-700 overflow-hidden justify-between">
       <View className="gap-10">
-        <View className="mt-14 w-full pl-5 border-b border-green-900/20 pb-6">
-          <Image source={require('@/assets/logo.svg')} className="w-34" resizeMode="contain" />
+        <View className="mt-16 w-full pl-5 border-b border-green-900/40 pb-1">
+          <Image 
+            source={require('@/assets/greencyclelogo.png')} 
+            className="w-44 h-20" 
+            resizeMode="contain" 
+          />
         </View>
         <View className="pl-5 gap-7">
           <Pressable className="flex-row gap-2 items-center">
