@@ -3,16 +3,16 @@ import Select from '@/components/select';
 import { AuthContext } from '@/contexts/auth';
 import { router } from 'expo-router';
 import React, { useContext, useEffect, useState } from 'react';
-import { KeyboardAvoidingView, Pressable, ScrollView, Text, View, Platform, Image, Touchable, TouchableOpacity, Dimensions, StyleSheet } from 'react-native';
+import { KeyboardAvoidingView, ScrollView, Text, View, Platform, TouchableOpacity, Dimensions } from 'react-native';
 
 const { width } = Dimensions.get('window');
 const url = 'http://192.168.1.111:8080/users/register';
 
 interface IResponseData {
-  status: number,
-  message: string,
-  token: string
-};
+  status: number;
+  message: string;
+  token: string;
+}
 
 import { useSession } from '@/contexts/authSession';
 
@@ -30,7 +30,11 @@ export default function RegisterUserData() {
   }
 
   const { stateId, setStateId, user, setToken } = authContext;
-  const { name, email, password, cpf } = user;
+  
+  const name = user?.name || '';
+  const email = user?.email || '';
+  const password = user?.password || '';
+  const cpf = user?.cpf || '';
 
   useEffect(() => {
     if (stateId !== '') {
@@ -83,7 +87,7 @@ export default function RegisterUserData() {
       
       if (responseData.token) {
         setToken(responseData.token);
-        signIn(responseData.token);
+        signIn('session', responseData.token);
         return router.push('/tutorial');
       }
 
@@ -119,7 +123,7 @@ export default function RegisterUserData() {
           </View>
           <View className='flex-col gap-3'>
             <TouchableOpacity className='h-16 w-full bg-white border border-green-900 rounded-full items-center justify-center' onPress={handleClickBackPage}>
-              <Text className="text-green-900  text-md font-bold">Voltar</Text>
+              <Text className="text-green-900 text-md font-bold">Voltar</Text>
             </TouchableOpacity>
             <TouchableOpacity
               className='h-16 w-full bg-green-900 rounded-full items-center justify-center'
