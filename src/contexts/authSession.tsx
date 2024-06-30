@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useStorageState } from '@/utils/useStorageState';
+import { AuthContext as AuthContextUser } from './auth';
+import { jwtDecode } from 'jwt-decode';
+import { User } from '@/interfaces/User.interface';
 
 const AuthContext = React.createContext<{
-  signIn: (token: string) => void;
+  signIn: (key: string, token: string) => void;
   signOut: () => void;
   session?: string | null;
   isLoading: boolean;
 }>({
-  signIn: (token: string) => null,
+  signIn: (key: string, token: string) => null,
   signOut: () => null,
   session: null,
   isLoading: false,
 });
 
-// This hook can be used to access the user info.
 export function useSession() {
   const value = React.useContext(AuthContext);
   if (process.env.NODE_ENV !== 'production') {
@@ -26,15 +28,27 @@ export function useSession() {
 
 export function SessionProvider(props: React.PropsWithChildren) {
   const [[isLoading, session], setSession] = useStorageState('session');
+  const authContext = useContext(AuthContextUser);
+
+  if (!authContext) {
+    throw new Error('AuthContext não foi fornecido corretamente.');
+  };
+
+  const { setToken, setConta, setUser } = authContext;
 
   return (
     <AuthContext.Provider
       value={{
-        signIn: (token: string) => {
-          // Perform sign-in logic here
+        signIn: (key: string, token: string) => {
           setSession(token);
+          setToken(token);
+          const decodedUser = jwtDecode(token);
+          setUser(decodedUser as User);
         },
         signOut: () => {
+          setToken('');
+          setUser(null);
+          setConta(null);
           setSession(null);
         },
         session,
